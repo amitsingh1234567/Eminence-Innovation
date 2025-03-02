@@ -1,2 +1,6 @@
-Use **npm install** to install the dependency
-Start server using **npm start**
+# Project Setup
+
+## Installation
+
+Run the following command to install all dependencies:
+npm install
