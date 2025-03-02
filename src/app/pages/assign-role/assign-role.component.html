@@ -1,0 +1,96 @@
+<div class="assign-role-container">
+    <h2>Assign User Role</h2>
+  
+    <!-- User Dropdown -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Select User</mat-label>
+      <mat-select [(ngModel)]="selectedUser" name="user" #userSelect="ngModel" required>
+        <mat-option value="" disabled>Select User</mat-option>
+        <mat-option *ngFor="let user of users" [value]="user._id">
+          {{ user.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="userSelect.invalid">User is required</mat-error>
+    </mat-form-field>
+  
+    <!-- Role Dropdown -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Select Role</mat-label>
+      <mat-select [(ngModel)]="selectedRole" name="role" #roleSelect="ngModel" required>
+        <mat-option value="" disabled>Select Role</mat-option>
+        <mat-option *ngFor="let role of roles" [value]="role">
+          {{ role }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="roleSelect.invalid">Role is required</mat-error>
+    </mat-form-field>
+  
+    <!-- Assign Role Button (Disabled if Fields are Empty) -->
+    <button mat-raised-button color="primary" class="submit-button" (click)="assignRole()" 
+      [disabled]="!selectedUser || !selectedRole">
+      Assign Role
+    </button>
+  </div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="assign-role-container">
+    <h2>Assign User Role</h2>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Select User</mat-label>
+      <mat-select [(ngModel)]="selectedUser" #userSelect="ngModel" required>
+        <mat-option value="">None</mat-option>
+        <mat-option *ngFor="let user of users" [value]="user">
+          {{ user }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="userSelect.invalid">User is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Select Role</mat-label>
+      <mat-select [(ngModel)]="selectedRole" #roleSelect="ngModel" required>
+        <mat-option value="">None</mat-option>
+        <mat-option *ngFor="let role of roles" [value]="role">
+          {{ role }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="roleSelect.invalid">Role is required</mat-error>
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" class="submit-button">Assign Role</button>
+  </div>
+   -->
+
+
+<!-- <div>
+<h4>mat-select</h4>
+<mat-form-field>
+  <mat-label>Select User</mat-label>
+  <mat-select>
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let user of users" [value]="user">
+        {{ user }}
+      </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<h4>mat-select</h4>
+<mat-form-field>
+  <mat-label>Select Role</mat-label>
+  <mat-select>
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let role of roles" [value]="role">
+        {{ role }}
+      </mat-option>
+  </mat-select>
+</mat-form-field>
+</div> -->

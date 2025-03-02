@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>{{ data ? 'Edit Task' : 'Create Task' }}</h2>
+
+<mat-dialog-content class="dialog-content">
+  <!-- Task Title -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Task Title</mat-label>
+    <input matInput [(ngModel)]="taskTitle" required />
+  </mat-form-field>
+
+  <!-- Description -->
+  <mat-form-field appearance="outline" class="full-width" >
+    <mat-label>Description</mat-label>
+    <textarea matInput rows="3" [(ngModel)]="taskDescription" required></textarea>
+  </mat-form-field>
+
+  <!-- Assign To Dropdown -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Assign To</mat-label>
+    <mat-select [(ngModel)]="assignedTo" required>
+      <mat-option *ngFor="let user of users" [value]="user._id" >
+        {{ user.name }} ({{ user.role }})
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Status Dropdown -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Status</mat-label>
+    <mat-select [(ngModel)]="status">
+      <mat-option value="pending">Pending</mat-option>
+      <mat-option value="approved">Approved</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!taskTitle">
+    Save Task
+  </button>
+</mat-dialog-actions>
