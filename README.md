@@ -4,7 +4,7 @@
 Run the following command to install all dependencies:
 `npm install`
 
-## Add Angular Material
+## Add Angular Material 
 `ng add @angular/material`
 
 ## Start App
